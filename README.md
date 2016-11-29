@@ -33,7 +33,7 @@ typedef struct
 	
 	char nome[30];
 	char cpf[11]; //o numero de digitos padrão de cpf (para o brasil)
-	//Endereco; //está dando erro
+	Endereco cliente;
 	
 }Cliente;
 
@@ -43,7 +43,7 @@ typedef struct
 	char nome[30];
 	char cpf[11]; //o numero de digitos padrão de cpf (para o brasil)
 	float salario; //talvez seja mais interessante por o salario em uma estrutura (já que o salario pode ser por comissão ou qualquer outra variante)
-	//Endereco; //está dando erro
+	Endereco funcionario;
 	
 }Funcionario;
 
@@ -82,22 +82,24 @@ main()
 	
 	do
 	{
-		printf("Digite 1 se deseja fazer ir para cadastros. Digite 2 se deseja verificar relatorios\n");
+		printf("Digite 1 se deseja fazer ir para cadastros. Digite 2 se deseja verificar relatorios. Digite qualquer outro numero se deseja sair\n");
 		scanf("%i", &verif1);
 		
-		//verificação das opções (otimizar isso) NOTA: do jeito que está funciona, mas se um caracter for digitado o programa dá erro (resolver isto)
-		while (verif1<1)
+		//Esses Whiles curzados provavelmente são apenas lixo (ELIMINAR CASO NÃO UTILIZAR)<<<<<<
+
+		//verificação das opções (otimizar isso) NOTA: do jeito que está funciona, mas se um caracter ou um numero float for digitado o programa dá erro (resolver isto)
+		/*while (verif1<1)
 		{
 			printf ("Esta opcao eh invalida, por favor digite outro numero\n");
 			scanf("%i", &verif1);
 			
-			while (verif1>2)
+			while (verif1>3)
 			{
 				printf ("Esta opcao eh invalida, por favor digite outro numero\n");
 				scanf("%i", &verif1);
 			}
 		}
-		while (verif1>2)
+		while (verif1>3)
 		{
 			printf ("Esta opcao eh invalida, por favor digite outro numero\n");
 			scanf("%i", &verif1);
@@ -107,24 +109,273 @@ main()
 				printf ("Esta opcao eh invalida, por favor digite outro numero\n");
 				scanf("%i", &verif1);
 			}
-		}
+		}*/
 
 		//implementação das opções (ATENÇÂO:o programa em si provavelmente vai estar dentro de todo esse switch)<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+		int menuA=1;
+		int menuB=1;
+		
 		switch (verif1)
 		{
-			case 1:
-				printf("teste1\n\n"); //Cadastro (Insersão, remoção, busca e edição) de funcionarios, clientes, carros e peças.
+			case 1: //CADASTROS--------------------------------------------------------------------
+			{
+				do
+				{
+					printf("\nVoce escolheu cadastros. Que tipo de operacao deseja fazer?\n"); //Cadastro (Insersão, remoção, busca e edição) de funcionarios, clientes, carros e peças.
+					printf("\n1-carros e pecas\n2-clientes\n3-funcionarios\n\ndigite qualquer outro numero para sair\n");
+					scanf("%i", &menuA);
+					
+					switch(menuA)
+					{
+						case 1: //Carros e peças<<<<<<<<<<
+						{
+							int menu1=1;
+							
+							do
+							{
+								printf("\nVoce escolheu carros e pecas. Que tipo de opreacao deseja fazer?\n");
+								printf("\n1-novo cadastro\n2-remover cadastro\n3-editar cadastro\n4-buscar cadastro\n5-sair\n");
+								scanf("%i", &menu1);
+								
+								switch(menu1)
+								{
+									case 1:
+									{
+										//adicionar;
+										break;
+									}
+									case 2:
+									{
+										//deletar;
+										break;
+									}
+									case 3:
+									{
+										//editar;
+										break;
+									}
+									case 4:
+									{
+										//procurar;
+										break;
+									}
+									case 5:
+										break;
+								}
+							}while(menu1!=5);
+							break;
+						}
+						break;
+						
+						case 2: //Clientes<<<<<<<<<<
+						{
+							int menu1=1;
+							
+							do
+							{
+								printf("\nVoce escolheu clientes. Que tipo de opreacao deseja fazer?\n");
+								printf("\n1-novo cadastro\n2-remover cadastro\n3-editar cadastro\n4-buscar cadastro\n5-sair\n");
+								scanf("%i", &menu1);
+								
+								switch(menu1)
+								{
+									case 1:
+									{
+										//adicionar;
+										break;
+									}
+									case 2:
+									{
+										//deletar;
+										break;
+									}
+									case 3:
+									{
+										//editar;
+										break;
+									}
+									case 4:
+									{
+										//procurar;
+										break;
+									}
+									case 5:
+										break;
+								}
+							}while(menu1!=5);
+							break;
+						}
+						break;
+						
+						case 3: //Funcionarios<<<<<<<<<<
+						{
+							int menu1=1;
+							
+							do
+							{
+								printf("\nVoce escolheu funcionarios. Que tipo de opreacao deseja fazer?\n");
+								printf("\n1-novo cadastro\n2-remover cadastro\n3-editar cadastro\n4-buscar cadastro\n5-sair\n");
+								scanf("%i", &menu1);
+								
+								switch(menu1)
+								{
+									case 1:
+									{
+										//adicionar;
+										break;
+									}
+									case 2:
+									{
+										//deletar;
+										break;
+									}
+									case 3:
+									{
+										//editar;
+										break;
+									}
+									case 4:
+									{
+										//procurar;
+										break;
+									}
+									case 5:
+										break;
+								}
+							}while(menu1!=5);
+							break;
+						}
+						break;
+						
+						case 4: //Fim do switch<<<<<<<<<<
+							break;
+					}
+					break;
+				}while(menuA!=4);
 				break;
-			case 2:
-				printf("teste2\n\n"); //Relatorios (carros mais vendidos, funcionario do mês, faturamento (custo e lucros), clientes que mais consomem
+			}
+			
+			case 2: //RELATORIOS--------------------------------------------------------------------
+			{
+				do
+				{
+					printf("\nVoce escolheu relatorios. Que tipo de operacao deseja fazer?\n"); //Relatorios (carros mais vendidos, funcionario do mês, faturamento (custo e lucros), clientes que mais consomem)
+					printf("\n1-carros mais vendidos\n2-funcionario do mes\n3-faturamento\n4-clientes que mais consomem\n\ndigite qualquer outro numero para sair\n");
+					scanf("%i", &menuB);
+					break;
+					
+					switch(menuB)
+					{
+						case 1: //Carros mais vendidos<<<<<<<<<<
+						{
+							int menu1=1;
+							
+							do
+							{
+								printf("\nVoce escolheu carros mais vendidos. Que tipo de opreacao deseja fazer?\n");
+								printf("\n1-carros mais vendidos no ultimo mes\n2-carros mais vendido nos ultimos 6 meses\n3-carros mais vendidos neste ano\n4-sair\n");
+								scanf("%i", &menu1);
+								
+								switch(menu1)
+								{
+									case 1:
+									{
+										//mais vendidos no ultimo mes;
+										break;
+									}
+									case 2:
+									{
+										//mais vendidos nos ultimos 6 meses;
+										break;
+									}
+									case 3:
+									{
+										//mais vendidos neste ano;
+										break;
+									}
+									case 4:
+										break;
+								}
+							}while(menu1!=4);
+							break;
+						}
+						break;
+						
+						case 2: //Funcionario do mes<<<<<<<<<<
+						{
+							//Funcionario do mes
+							break;
+						}
+						break;
+						
+						case 3: //Faturamento<<<<<<<<<<
+						{
+							int menu1=1;
+							
+							do
+							{
+								printf("\nVoce escolheu faturamento. Que tipo de opreacao deseja fazer?\n");
+								printf("\n1-faturamento deste mes\n2-faturamento do mes passado\n3-faturamento deste ano(ate agora)\n4-faturamento do ano passado\n5-sair\n");
+								scanf("%i", &menu1);
+								
+								switch(menu1)
+								{
+									case 1:
+									{
+										//faturamento deste mes;
+										break;
+									}
+									case 2:
+									{
+										//faturamento mes passado;
+										break;
+									}
+									case 3:
+									{
+										//faturamento deste ano;
+										break;
+									}
+									case 4:
+									{
+										//faturamento ano passado;
+										break;
+									}
+									case 5:
+										break;
+								}
+							}while(menu1!=5);
+							break;
+						}
+						break;
+						
+						case 4: //Clientes que mais consomem<<<<<<<<<<
+						{
+							//Lista de clientes que mais consomem
+							break;
+						}
+						break;
+						
+						case 5: //Fim do switch<<<<<<<<<<
+							break;
+					}
+					break;
+				}while(menuB!=5);
 				break;
+			}
 		}
 		
-		//verificação da continuidade do programa (otimizar isso) NOTA: do jeito que está funciona, mas se um caracter for digitado o programa dá erro (resolver isto)
-		printf("deseja realizar mais alguma operacao? (digite 1 para sim e 0 para nao)\n");
+		//verificação da continuidade do programa (otimizar isso) NOTA: do jeito que está funciona, mas se um caracter ou numero float for digitado o programa dá erro (resolver isto)
+		printf("\ndeseja realizar mais alguma operacao? (digite qualquer numero para sim e 0 para nao)\n");
 		scanf("%i", &verif2);
+		
+		if(verif2==0)
+		{
+			verif1=3;
+		}
 			
-		while (verif2<0)
+		//Esses Whiles curzados provavelmente são apenas lixo (ELIMINAR CASO NÃO UTILIZAR)<<<<<<	
+		
+		/*while (verif2<0)
 		{
 			printf ("Esta opcao eh invalida, por favor digite outro numero\n");
 			scanf("%i", &verif2);
@@ -145,6 +396,6 @@ main()
 				printf ("Esta opcao eh invalida, por favor digite outro numero\n");
 				scanf("%i", &verif2);
 			}
-		}		
-	}while (verif2!=0);
+		}*/		
+	}while (verif1!=3);
 }
